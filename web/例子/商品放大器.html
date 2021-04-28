@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品放大器</title>
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .box1{
+            position: absolute;
+            top: 100px;
+            left: 300px;
+            width: 430px;
+            border: solid 1px red;
+        }
+        .imgbox{
+            position: relative;
+        }
+
+        .box2{
+            position: absolute;
+            top: 100px;
+            left: 500px;
+            width: 300px;
+            height: 300px;
+            border: solid 1px red;
+            background-image: url('./imgs/logo.png');
+            background-size: 860px 860px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="imgbox">
+            <img src="./imgs/logo.png" alt="">
+        </div>
+    </div>
+    <script>
+        var imgbox = document.getElementsByClassName('imgbox')[0];
+        imgbox.addEventListener('mousemove',creatBoxWithMousemove,false);
+        //跟手盒子生成
+        function creatBoxWithMousemove(event){
+            var boxWithMouse;
+            if(this.children.length < 2){
+                console.log('create')
+                boxWithMouse = document.createElement('div');
+                boxWithMouse.style.cssText = 'position: absolute;width: 100px;height: 100px;background-color: rgba(255, 230, 5, 0.473)';
+                this.appendChild(boxWithMouse);
+            }
+            else{
+                boxWithMouse = this.children[1];
+            }
+            var imgboxPos = positionInHtml(this);
+            var mousePos = [event.pageY - imgboxPos[0],event.pageX - imgboxPos[1]];
+            if(mousePos[0] > 370 || mousePos[1] > 370){
+                boxWithMouse.style.top = '0px';
+                boxWithMouse.style.left = '330px';
+            }
+            else{
+                boxWithMouse.style.top = mousePos[0] - 50 + 'px';
+                boxWithMouse.style.left = mousePos[1] - 50 + 'px';
+            }
+            
+        }
+        //盒子在页面中的位置
+        function positionInHtml(ele){
+            var actTopPos = 0;
+            var actLeftPos = 0;
+            while(ele.offsetParent){
+                actLeftPos += ele.offsetLeft;
+                actTopPos += ele.offsetTop;
+                ele = ele.offsetParent;
+            }
+            return [actTopPos,actLeftPos]
+        }
+    </script>
+</body>
+</html>

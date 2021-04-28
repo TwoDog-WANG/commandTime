@@ -1,0 +1,95 @@
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+/*高宽：700，900，居中，相对定位是为了在后续添加的表单可以随main定位*/
+.main {
+    height: 700px;
+    width: 900px;
+    margin: 20px auto;
+    position: relative;
+}
+
+#leftShow {
+    height: 700px;
+    width: 330px;
+    float: left;
+}
+/*img的父元素leftShow没有定位，所以此时定位是相对main*/
+#leftShow #asideImg {
+    width: 30px;
+    position: absolute;
+    z-index: 9999;
+    left: 280px;
+    top: 90px;
+}
+
+/*导航栏各个元素位置问题以后解决*/
+#leftShow #navInLeft {
+    height: 60px;
+    width: 316px;
+    margin-top: 20px;
+    background-color: #edf4ed;
+    border-radius: 6px;
+}
+#leftShow #navInLeft ul li{
+    list-style-type: none;
+    float: left;
+    width: 70px;
+    margin: 0 5px;
+    background-color: #edf4ed;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+}
+#leftShow #navInLeft ul li:first-child{
+    margin-left: 3px;
+}
+#leftShow #navInLeft ul li:last-child{
+    margin-left: 3px;
+}
+
+/*aside相对，container绝对*/
+#leftShow #aside {
+    height: 600px;
+    width: 330px;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+#leftShow #aside #container {
+    width: 1320px;
+    position: absolute;
+    /*left的移动来改变展示区域*/
+    top: 0px;
+    left: 0px;
+}
+#leftShow #aside #container > div {
+    float: left;
+    height: 600px;
+    width: 328px;
+    overflow-y: scroll;
+}
+/*设定滚动条的宽度*/
+#leftShow #aside #container > div::-webkit-scrollbar{
+    width: 8px;
+}
+/*滚动条轨道的样式和滚动条滑块的样式*/
+#leftShow #aside #container > div::-webkit-scrollbar-track {
+    border-radius: 6px;  
+    background: #f2f7f6;  
+}
+#leftShow #aside #container > div::-webkit-scrollbar-thumb {
+    border-radius: 6px;  
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background: #dbd9d9;  
+}
+
+#rightShow {
+    height: 700px;
+    width: 490px;
+    margin-right: 20px;
+    float: right;
+    border: solid 1px;
+}

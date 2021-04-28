@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Command-TIME</title>
+    <!--主页面css和表单css-->
+    <link rel="stylesheet" href="../css/timeMain.css">
+    <link rel="stylesheet" href="../css/form.css">
+</head>
+<body>
+    <div class="main">
+        <!--左栏右栏，右栏为完成-->
+        <div id="leftShow">
+            <!--img用于点击后生成提交事项的表单-->
+            <img src="../imgs/add.png" id="asideImg">
+            <nav id="navInLeft">
+                <ul>
+                    <li>待办</li>
+                    <li>ACG</li>
+                    <li>书籍</li>
+                    <li>音乐</li>
+                </ul>
+            </nav>
+            <!--aside设置多于内容影藏，通过container移动来展示不同的区域-->
+            <aside id="aside">
+                <div id="container">
+                    <div id="thing"></div>
+                    <div id="ACG"></div>
+                    <div id="book"></div>
+                    <div id="music"></div>
+                </div>
+            </aside>
+        </div>
+        <div id="rightShow"></div>
+    </div>
+    <!--timeMain.js最后导入，程序主如口-->
+    <script src="../js/deleteTime.js"></script>
+    <script src="../js/timeBox.js"></script>
+    <script src="../js/getJSON.js"></script>
+    <script src="../js/addTime.js"></script>
+    <script src="../js/timeMain.js"></script>
+</body>
+</html>
